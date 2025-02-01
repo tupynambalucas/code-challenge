@@ -4,17 +4,19 @@
 
 - [Docker](https://docs.docker.com/desktop/?_gl=1*set100*_gcl_au*NTkzNTgyMDkzLjE3Mzc5ODIwNjk.*_ga*MTM2Njk2ODQ4MC4xNzM3OTgyMDY5*_ga_XJWPQMJYHQ*MTczODM4NzE2OS4xNS4xLjE3MzgzODcxOTIuMzcuMC4w)
 
+### Proceeding
 
 > [!NOTE]
 >To change the {database} __sql_alchemy_conn__ variable you must use the __meltano.yml__ config file. 
 >Setting environment variables in __docker-compose.yml__ or __airflow.cfg__(./orchestrate/airflow/airflow.cfg)  also work, but not for __sql_alchemy_conn__. :grinning:\
 
->Put your dags in __(./orchestrate/airflow/dags/)__ and done.
+Put your dags in __(./orchestrate/airflow/dags/)__
 
 In your CLI type:
 ```
 docker-compose up
 ```
+Wait the container to build and its done! Meltano will invoke Airflow Scheduler to start doing tasks.
 
 # Indicium Tech Code Challenge
 
