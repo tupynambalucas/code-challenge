@@ -47,7 +47,7 @@ meltano add files files-airflow
 ```
 
 > [!NOTE]
-> Since Point and click tools are not allowed in the challenge Airflow webserver is not invoked in this project.
+> Since Point and click tools are not allowed in this challenge, Airflow webserver is not invoked in this project.
 
 But to do so, add the follow to your ***docker-compose.yml*** services.
 ```

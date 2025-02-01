@@ -6,6 +6,10 @@ environments:
 - name: staging
 - name: prod
 plugins:
+  extractors:
+  - name: tap-postgres
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
   utilities:
   - name: airflow
     variant: apache
