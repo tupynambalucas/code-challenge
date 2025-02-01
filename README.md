@@ -9,6 +9,7 @@
 
 > [!CAUTION]
 > To change Airflow ***{database} sql_alchemy_conn*** variable you must use the ***meltano.yml*** config file.<br/>
+>
 > Setting environment variables in ***docker-compose.yml*** or ***airflow.cfg***(./orchestrate/airflow/airflow.cfg)  also work, but not for ***sql_alchemy_conn***. :grinning:
 
 Put your dags in ***(./orchestrate/airflow/dags/)***
