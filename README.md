@@ -8,6 +8,9 @@ Then just:
 docker-compose up
 ```
 
+### Note
+To change the {database} *sql_alchemy_conn* variable you must use the *meltano.yml* config file, setting environment variables in *docker-compose.yml* or *airflow.cfg(./orchestrate/airflow/airflow.cfg)  also work, but not for *sql_alchemy_conn*.
+
 # Indicium Tech Code Challenge
 
 Code challenge for Software Developer with focus in data projects.
