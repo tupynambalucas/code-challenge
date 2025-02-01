@@ -20,6 +20,12 @@ docker-compose up
 ```
 Wait the container to build and its done! Meltano will invoke Airflow Scheduler to start doing tasks.
 
+
+If you make any change to the image you need to build it again:
+```
+docker-compose up --build
+```
+
 ## Keep in mind
 
 > [!IMPORTANT]
