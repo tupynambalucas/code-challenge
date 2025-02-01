@@ -8,8 +8,8 @@
 ### Proceeding
 
 > [!CAUTION]
->To change Airflow ***{database} sql_alchemy_conn*** variable you must use the ***meltano.yml*** config file. 
->Setting environment variables in ***docker-compose.yml*** or ***airflow.cfg***(./orchestrate/airflow/airflow.cfg)  also work, but not for ***sql_alchemy_conn***. :grinning:
+> To change Airflow ***{database} sql_alchemy_conn*** variable you must use the ***meltano.yml*** config file.<br/>
+> Setting environment variables in ***docker-compose.yml*** or ***airflow.cfg***(./orchestrate/airflow/airflow.cfg)  also work, but not for ***sql_alchemy_conn***. :grinning:
 
 Put your dags in ***(./orchestrate/airflow/dags/)***
 
@@ -42,7 +42,7 @@ meltano add files files-airflow
 > [!NOTE]
 > Since Point and click tools are not allowed in the challenge Airflow webserver is not invoked in this project.
 
-But to do so, add the follow to your ***docker-compose.yml*** file.
+But to do so, add the follow to your ***docker-compose.yml*** services.
 ```
   airflow-webserver:
     <<: *meltano-image
@@ -54,8 +54,10 @@ But to do so, add the follow to your ***docker-compose.yml*** file.
     ports:
       - 8080:8080
     depends_on:
-      - meltano-system-db
-      - airflow-metadata-db
+      meltano-system-db:
+        condition: service_healthy
+      airflow-metadata-db:
+        condition: service_healthy
     networks:
       - meltano
       - airflow
@@ -64,6 +66,7 @@ But to do so, add the follow to your ***docker-compose.yml*** file.
 
 And this line of code in your Dockerfile right after Meltano install and you're ready to go with webserver!
 ```
+RUN meltano install
 RUN meltano invoke airflow:create-admin --username admin --firstname FIRST_NAME --lastname LAST_NAME --role Admin --email admin@example.org
 ```
 
