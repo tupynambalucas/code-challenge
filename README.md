@@ -1,6 +1,6 @@
 
-# Meltano with Airflow as orchestrator 
-
+# Meltano with Airflow as Orchestrator 
+"If it’s a boring adventure, i don’t want it!” ~ Monkey .D Luffy
 ### Requirements
 
 - [Docker](https://docs.docker.com/desktop/?_gl=1*set100*_gcl_au*NTkzNTgyMDkzLjE3Mzc5ODIwNjk.*_ga*MTM2Njk2ODQ4MC4xNzM3OTgyMDY5*_ga_XJWPQMJYHQ*MTczODM4NzE2OS4xNS4xLjE3MzgzODcxOTIuMzcuMC4w)
@@ -19,8 +19,10 @@ docker-compose up
 ```
 Wait the container to build and its done! Meltano will invoke Airflow Scheduler to start doing tasks.
 
+## Keep in mind
+
 > [!IMPORTANT]
-> All of files here are meltano defaults with some changes, if you want the original ones, you must install [meltano](https://docs.meltano.com/getting-started/installation/) in your machine.
+> All the files here are Meltano defaults with some changes, if you want the original ones, you must have a [meltano](https://docs.meltano.com/getting-started/installation/) project for tests in your machine.
 
 Docker Compose dev and prod yml files
 ```
