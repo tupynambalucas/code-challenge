@@ -1,4 +1,5 @@
 
+# Meltano with Airflow as orchestrator 
 
 ### Install Requirements
 
@@ -6,7 +7,7 @@
 
 ### Proceeding
 
-> [!NOTE]
+> [!CAUTION]
 >To change Airflow {database} ***sql_alchemy_conn*** variable you must use the ***meltano.yml*** config file. 
 >Setting environment variables in ***docker-compose.yml*** or ***airflow.cfg***(./orchestrate/airflow/airflow.cfg)  also work, but not for ***sql_alchemy_conn***. :grinning:
 
@@ -18,6 +19,23 @@ docker-compose up
 ```
 Wait the container to build and its done! Meltano will invoke Airflow Scheduler to start doing tasks.
 
+> [!IMPORTANT]
+> All of files here are meltano defaults with some changes, if you want the original ones, you must install [meltano](https://docs.meltano.com/getting-started/installation/) in your machine.
+
+Docker Composer dev and prod yml files
+```
+meltano add files files-docker-compose
+```
+
+Docker File
+```
+meltano add files files-docker
+```
+
+Airflow Default Dag
+```
+meltano add files airflow
+```
 # Indicium Tech Code Challenge
 
 Code challenge for Software Developer with focus in data projects.
