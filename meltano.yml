@@ -1,0 +1,43 @@
+version: 1
+default_environment: dev
+project_id: 1403ec1a-a0d4-4cef-afdc-2e0a83103225
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  utilities:
+  - name: airflow
+    variant: apache
+    pip_url: psycopg2-binary git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.9.0
+      --constraint 
+      https://raw.githubusercontent.com/apache/airflow/constraints-2.9.0/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
+    settings:
+    - name: database.sql_alchemy_conn
+      label: SQL Alchemy Connection
+      value: postgresql+psycopg2://airflow:airflow@airflow-metadata-db:5432/airflow
+      env: AIRFLOW__DATABASE__SQL_ALCHEMY_CONN
+    - name: core.dags_folder
+      label: DAGs Folder
+      value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/dags
+      env: AIRFLOW__CORE__DAGS_FOLDER
+    - name: core.load_examples
+      label: Load Examples
+      value: false
+      env: AIRFLOW__CORE__LOAD_EXAMPLES
+    - name: core.dags_are_paused_at_creation
+      label: Pause DAGs at Creation
+      env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
+      value: false
+    - name: extension.airflow_home
+      label: Airflow Home
+      value: $MELTANO_PROJECT_ROOT/orchestrate/airflow
+      env: AIRFLOW_HOME
+    - name: logging.base_log_folder
+      label: Base Log Folder
+      value: $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs
+      env: AIRFLOW__LOGGING__BASE_LOG_FOLDER
+    - name: logging.dag_processor_manager_log_location
+      label: Dag Processor Manager Log Location
+      value: $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs/dag_processor_manager/dag_processor_manager.log
+      env: AIRFLOW__LOGGING__DAG_PROCESSOR_MANAGER_LOG_LOCATION

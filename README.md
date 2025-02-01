@@ -1,3 +1,13 @@
+
+### Install Requirements
+
+- [Docker](https://docs.docker.com/desktop/?_gl=1*set100*_gcl_au*NTkzNTgyMDkzLjE3Mzc5ODIwNjk.*_ga*MTM2Njk2ODQ4MC4xNzM3OTgyMDY5*_ga_XJWPQMJYHQ*MTczODM4NzE2OS4xNS4xLjE3MzgzODcxOTIuMzcuMC4w)
+
+Then just:
+```
+docker-compose up
+```
+
 # Indicium Tech Code Challenge
 
 Code challenge for Software Developer with focus in data projects.
@@ -58,7 +68,7 @@ Database:
 - [PostgreSQL](https://www.postgresql.org/docs/15/index.html)
 
 The solution should be based on the diagrams below:
-![image](docs/diagrama_embulk_meltano.jpg)
+![image](challenge-data/docs/diagrama_embulk_meltano.jpg)
 
 
 ### Requirements
